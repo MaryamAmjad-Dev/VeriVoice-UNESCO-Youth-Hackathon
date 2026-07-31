@@ -1,4 +1,4 @@
-# 🌐 VeriVoice – UNESCO Youth Hackathon 2026
+# 🌐 VeriVoice: UNESCO Youth Hackathon 2026
 
 VeriVoice is an AI-powered multilingual voice fact verification platform that leverages a collaborative multi-agent architecture to analyze speech, verify factual claims, retrieve trusted evidence, and generate explainable AI verification reports.
 
