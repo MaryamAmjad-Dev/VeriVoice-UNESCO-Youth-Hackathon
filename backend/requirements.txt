@@ -1,0 +1,13 @@
+# VeriVoice backend dependencies.
+# Version floors chosen so prebuilt wheels exist for Python 3.14 (no source build).
+fastapi>=0.115.6
+uvicorn[standard]>=0.34.0
+python-multipart>=0.0.20
+pydantic>=2.11
+pydantic-settings>=2.7.1
+google-genai>=1.9.0
+python-dotenv>=1.0.1
+httpx>=0.28.1
+
+# Optional persistence (MongoDB Atlas). Only used when MONGODB_URI is set.
+motor>=3.6.0

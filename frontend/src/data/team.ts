@@ -1,0 +1,7 @@
+export type TeamMember = { name: string; role: string; bio: string; image?: string; skills: string[]; github?: string; linkedin?: string; email?: string; website?: string };
+// Replace these clearly labelled sample profiles with the verified hackathon team details.
+export const teamMembers: TeamMember[] = [
+  { name: 'Aisha Rahman', role: 'Product & Research', bio: 'Shapes inclusive product direction and keeps the experience grounded in information accessibility.', skills: ['Product strategy','Research','Accessibility'], github: 'https://github.com/', linkedin: 'https://www.linkedin.com/', email: 'team@verivoice.example', website: 'https://example.com/' },
+  { name: 'Daniel Okoro', role: 'Frontend Engineer', bio: 'Builds clear, resilient interface systems for multilingual and community-centred experiences.', skills: ['Next.js','Design systems','UX engineering'], github: 'https://github.com/', linkedin: 'https://www.linkedin.com/', email: 'team@verivoice.example' },
+  { name: 'Mina Patel', role: 'Information Design', bio: 'Turns complex verification journeys into understandable, evidence-aware interactions.', skills: ['Information design','Content strategy','Prototyping'], linkedin: 'https://www.linkedin.com/', email: 'team@verivoice.example', website: 'https://example.com/' },
+];

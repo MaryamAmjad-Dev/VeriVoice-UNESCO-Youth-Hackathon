@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme { --color-brand-500: #3b82f6; --color-brand-600: #2563eb; --color-accent-500: #14b8a6; --font-sans: var(--font-geist-sans), Arial, sans-serif; --font-mono: var(--font-geist-mono), monospace; --animate-pulse-slow: pulse 3s cubic-bezier(.4,0,.6,1) infinite; --animate-waveform: waveform 1.2s ease-in-out infinite; --animate-glow: glow 8s ease-in-out infinite; --animate-float: float 6s ease-in-out infinite; @keyframes waveform { 0%,100% { transform:scaleY(.35); } 50% { transform:scaleY(1); } } @keyframes glow { 0%,100% { opacity:.35; filter:blur(50px); } 50% { opacity:.65; filter:blur(75px); } } @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } } }
+:root { --background:#fff; --foreground:#09090b; } .dark { --background:#030712; --foreground:#f9fafb; } html { scroll-behavior:smooth; } body { min-height:100vh; background-color:var(--background); color:var(--foreground); font-family:var(--font-sans); transition:background-color .25s ease,color .25s ease; } ::selection { background:rgb(59 130 246 / .2); } ::-webkit-scrollbar { width:7px;height:7px; } ::-webkit-scrollbar-track { background:transparent; } ::-webkit-scrollbar-thumb { border-radius:999px;background:rgb(0 0 0 / .15); } .dark ::-webkit-scrollbar-thumb { background:rgb(255 255 255 / .13); }
+.vv-enter,.vv-section-heading { animation:vv-fade-up .55s cubic-bezier(.2,.7,.2,1) both; } .vv-enter-delay { animation-delay:.12s; } .vv-status { animation:vv-status .28s ease-out both; } .vv-mobile-menu { animation:vv-menu .18s ease-out both; } .vv-particle { animation-name:vv-particle; animation-timing-function:ease-in-out; animation-iteration-count:infinite; } @keyframes vv-fade-up { from { opacity:0;transform:translateY(14px); } to { opacity:1;transform:translateY(0); } } @keyframes vv-status { from { opacity:0;transform:translateY(4px); } to { opacity:1;transform:translateY(0); } } @keyframes vv-menu { from { opacity:0;transform:translateY(-6px); } to { opacity:1;transform:translateY(0); } } @keyframes vv-particle { 0%,100% { transform:translate3d(0,0,0);opacity:.2; } 50% { transform:translate3d(10px,-22px,0);opacity:.7; } } @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important; } }
+.vv-scroll-reveal, [data-reveal] { opacity: 1; transform: none; }
+[data-reveal].is-visible { animation: vv-fade-up .55s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--reveal-delay, 0ms); }
+.vv-hero-copy > * { opacity: 0; animation: vv-fade-up .6s cubic-bezier(.2,.7,.2,1) both; }
+.vv-hero-copy > :nth-child(1) { animation-delay: 0ms; } .vv-hero-copy > :nth-child(2) { animation-delay: 100ms; } .vv-hero-copy > :nth-child(3) { animation-delay: 250ms; } .vv-hero-copy > :nth-child(4) { animation-delay: 350ms; } .vv-hero-copy > :nth-child(5) { animation-delay: 450ms; }
+.vv-ambient-orb { animation: vv-orb 18s ease-in-out infinite alternate; } .vv-status-glow { box-shadow: 0 0 28px rgb(45 212 191 / .14); }
+.vv-cta-surface { background-size: 180% 180%; animation: vv-gradient 16s ease infinite; }
+@keyframes vv-orb { from { transform: translate3d(-4%, -3%, 0) scale(.96); } to { transform: translate3d(5%, 4%, 0) scale(1.08); } }
+@keyframes vv-gradient { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+@media (prefers-reduced-motion: reduce) { .vv-scroll-reveal, [data-reveal], .vv-hero-copy > * { opacity: 1; transform: none; animation: none; transition: none; } .vv-ambient-orb, .vv-cta-surface { animation: none; } }
+
+/* ===== VeriVoice premium visual system ===== */
+/* Layered cinematic page backdrop (sits behind the particle canvas) */
+.vv-backdrop { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(55% 45% at 12% 0%, rgba(37,99,235,.08), transparent 60%), radial-gradient(45% 40% at 100% 8%, rgba(20,184,166,.07), transparent 60%), radial-gradient(60% 55% at 50% 100%, rgba(37,99,235,.06), transparent 60%); }
+.dark .vv-backdrop { background: radial-gradient(55% 45% at 12% -5%, rgba(37,99,235,.20), transparent 60%), radial-gradient(45% 45% at 100% 6%, rgba(20,184,166,.12), transparent 60%), radial-gradient(70% 60% at 50% 105%, rgba(29,78,216,.16), transparent 60%), linear-gradient(180deg, #05070e 0%, #080b14 45%, #05070e 100%); }
+
+/* Subtle engineering grid, faded with a radial mask */
+.vv-grid { background-image: linear-gradient(to right, rgba(100,120,160,.10) 1px, transparent 1px), linear-gradient(to bottom, rgba(100,120,160,.10) 1px, transparent 1px); background-size: 46px 46px; -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 25%, transparent 78%); mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 25%, transparent 78%); }
+.dark .vv-grid { background-image: linear-gradient(to right, rgba(140,170,220,.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(140,170,220,.07) 1px, transparent 1px); }
+
+/* Gradient hairline used to separate sections */
+.vv-divider { height: 1px; width: 100%; background: linear-gradient(90deg, transparent, rgba(37,99,235,.25), rgba(20,184,166,.22), transparent); }
+.dark .vv-divider { background: linear-gradient(90deg, transparent, rgba(59,130,246,.38), rgba(45,212,191,.32), transparent); }
+
+/* Brand gradient text */
+.vv-gradient-text { background: linear-gradient(100deg, #2563eb, #0ea5e9 45%, #14b8a6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.dark .vv-gradient-text { background: linear-gradient(100deg, #60a5fa, #38bdf8 45%, #2dd4bf); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* Premium card surface: subtle gradient tint + illuminated border (brighter on hover) */
+.vv-card { background-image: radial-gradient(130% 90% at 0% 0%, rgba(59,130,246,.05), transparent 55%); }
+.dark .vv-card { background-image: radial-gradient(130% 90% at 0% 0%, rgba(56,189,248,.06), transparent 52%), radial-gradient(120% 90% at 100% 100%, rgba(20,184,166,.05), transparent 55%); }
+.vv-card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: linear-gradient(150deg, rgba(255,255,255,.5), rgba(255,255,255,.05) 35%, transparent 60%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: .5; transition: opacity .35s ease; pointer-events: none; }
+.dark .vv-card::before { background: linear-gradient(150deg, rgba(255,255,255,.18), rgba(255,255,255,.02) 38%, transparent 62%); opacity: .6; }
+.vv-card:hover::before { opacity: 1; }
+
+/* Confidence meter fill — grows from 0 on mount */
+.vv-meter-fill { width: var(--vv-fill, 0%); background: linear-gradient(90deg, #2563eb, #38bdf8 55%, #2dd4bf); animation: vv-meter-grow 1s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes vv-meter-grow { from { width: 0; } to { width: var(--vv-fill, 0%); } }
+
+/* Pipeline signal line with a travelling glow */
+.vv-flow-line { position: absolute; left: 0; right: 0; height: 2px; overflow: hidden; background: linear-gradient(90deg, transparent, rgba(59,130,246,.32), rgba(45,212,191,.28), transparent); }
+.vv-flow-line::after { content: ""; position: absolute; top: 0; left: -30%; height: 100%; width: 30%; background: linear-gradient(90deg, transparent, rgba(125,211,252,.9), transparent); animation: vv-flow 3.4s linear infinite; }
+@keyframes vv-flow { from { transform: translateX(0); } to { transform: translateX(460%); } }
+
+/* Animated nav underline */
+.vv-navlink { position: relative; }
+.vv-navlink::after { content: ""; position: absolute; left: 0; right: 0; bottom: -5px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, #2563eb, #14b8a6); transform: scaleX(0); transition: transform .28s ease; }
+.vv-navlink:hover::after { transform: scaleX(1); }
+
+@media (prefers-reduced-motion: reduce) { .vv-flow-line::after { animation: none; } .vv-meter-fill { animation: none; } }
